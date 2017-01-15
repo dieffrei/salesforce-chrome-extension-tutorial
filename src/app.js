@@ -5,11 +5,12 @@ angular.module('myFirstChromeExtensionApp',['br.com.dieffrei.chromeForce'])
     .controller('MainCtrl', ['$scope', 'chromeBrowserService', 'chromeForceService', '$q', '$http',
         function($scope, chromeBrowserService, chromeForceService, $q, $http){
 
-            $scope.appName = 'My first chrome extension';
             $scope.myOrganization = null;
+            $scope.isOnSalesforceDomain = false;
 
             var api = null;
 
+            //getting salesforce session info
             chromeForceService.getSalesforceInfo().then(function(salesforceInfo){
                 console.log('salesforce info', salesforceInfo);
                 api = new ChromeForce.SalesforceApi({
@@ -19,9 +20,15 @@ angular.module('myFirstChromeExtensionApp',['br.com.dieffrei.chromeForce'])
                     $http: $http
                 });
             },function(err){
-                console.err(err);
+                console.error(err);
             });
 
+            //detect if is salesforce domain
+            chromeForceService.getIsOnSalesforceDomain().then(function(isSalesforce){
+                $scope.isOnSalesforceDomain = isSalesforce;
+            });
+
+            //call salesforce rest api to get organization info
             $scope.getUserInfo = function(){
                 var query = 'SELECT Id, Name FROM Organization';
                 api.callRestApi('/query?q=' + query, 'GET')
@@ -29,7 +36,5 @@ angular.module('myFirstChromeExtensionApp',['br.com.dieffrei.chromeForce'])
                         $scope.myOrganization = response.data.records[0];
                 })
             }
-
-
 
         }]);

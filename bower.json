@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "chrome-force": "^1.0.0"
+    "chrome-force": "^1.0.0",
+    "salesforce-lightning-design-system": "^2.2.1"
   }
 }
