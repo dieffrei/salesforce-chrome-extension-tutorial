@@ -1,0 +1,29 @@
+{
+  "name": "My first chrome extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "",
+  "browser_action": {
+    "default_icon": {
+      "64" : "assets/img/logo-64.png",
+      "48" : "assets/img/logo-48.png",
+      "128" : "assets/img/logo-128.png"
+    },
+    "default_popup": "index.html"
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "web_accessible_resources" : [
+    "bower_components*",
+    "assets*"
+  ],
+
+  "permissions": [
+    "https://*.salesforce.com/",
+    "https://*.force.com/",
+    "activeTab",
+    "cookies"
+  ]
+
+}

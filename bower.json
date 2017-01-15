@@ -1,0 +1,26 @@
+{
+  "name": "salesforce-chrome-extension-tutorial",
+  "authors": [
+    "dieffrei@gmail.com"
+  ],
+  "description": "salesforce chrome extension tutorial",
+  "main": "",
+  "keywords": [
+    "salesforce",
+    "chrome",
+    "extension"
+  ],
+  "license": "MIT",
+  "homepage": "dieffrei.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chrome-force": "^1.0.0"
+  }
+}
