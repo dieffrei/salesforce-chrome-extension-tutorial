@@ -1,5 +1,7 @@
 # salesforce-chrome-extension-tutorial
 
+#preview
+
 # View
 ```html
 <!DOCTYPE html>
